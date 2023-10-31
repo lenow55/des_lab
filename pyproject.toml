@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "des-lab"
+version = "0.1.0"
+description = "репозиторий для лаб по защите информации"
+authors = ["Новиков Илья <nov.ilucha@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bitarray = "^2.8.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
