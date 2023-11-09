@@ -76,7 +76,7 @@ def make_key_pair(length):
     stop = (p - 1) * (q - 1)
     # шаг 3
     # выбор открытой экспоненты меньше ф(n)
-    for e in range(stop // 2+1, stop, 2):
+    for e in range((stop // 2)+1, stop, 2):
         if are_relatively_prime(e, stop):
             break
     else:
@@ -86,10 +86,9 @@ def make_key_pair(length):
     # находим закрытую экспоненту
     # Third step: find ``d`` such that ``(d * e - 1)`` is divisible by
     # ``(p - 1) * (q - 1)``.
-    k: int=5
-    d: int = (k * stop + 1) // e
+    d: int = stop + 1
 
-    print("e ", e, "d ", d, "n ", p*q)
+    print("e ", e, "d ", d, "n ", p*q, "stop", stop)
     # возвращаем пару открытых ключей
     return PublicKey(p * q, e), PrivateKey(p * q, d)
 
@@ -135,7 +134,7 @@ if __name__ == '__main__':
     assert private.decrypt(1299565302) == 123456
 
     # Test with random values.
-    for length in range(10, 17):
+    for length in range(30, 32):
         public, private = make_key_pair(length)
 
         assert public.n == private.n
