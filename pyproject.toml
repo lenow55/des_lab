@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 bitarray = "^2.8.2"
+sympy = "^1.12"
 
 
 [build-system]
