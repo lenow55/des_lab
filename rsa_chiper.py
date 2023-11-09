@@ -122,12 +122,9 @@ class PublicKey(namedtuple('PublicKey', 'n e')):
     def encrypt_utf8(self, msg:str):
         """ Шифрование сообщения """
         blocks = msg.encode('utf-8')
-        print([block for block in blocks])
-        print(pow(blocks[0], self.e, self.n))
         blocks_enc = [
             pow(block, self.e, self.n) for block in blocks
         ]
-        print(blocks_enc)
 
 
         return ';'.join([str(block) for block in blocks_enc])
